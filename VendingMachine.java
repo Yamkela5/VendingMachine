@@ -2,37 +2,37 @@ package Exceptions;
 
 public class VendingMachine {
 
-    private static int StockCount;
-    private static int SaltySnackCount;
-    private static int SoftDrinksCount;
-    private static int ChocolateCount;
+    private static int stockCount;
+    private static int saltySnackCount;
+    private static int softDrinksCount;
+    private static int chocolateCount;
 
     public static String buy(Product product) throws ProductNotFoundException{
         if (product instanceof Product) {
             if (product instanceof Chocolates) {
-                if (ChocolateCount > 0) {
-                    ChocolateCount--;
-                    StockCount--;
+                if (chocolateCount > 0) {
+                    chocolateCount--;
+                    stockCount--;
                 } else {
-                    throw new ProductNotFoundException(product);
+                    throw new ChocolateAllGone(product);
                 }
             }
             if (product instanceof SoftDrinks) {
-                if (SoftDrinksCount > 0) {
-                    SoftDrinksCount--;
-                    StockCount--;
+                if (softDrinksCount > 0) {
+                    softDrinksCount--;
+                    stockCount--;
                 } else {
-                    throw new ProductNotFoundException(product);
+                    throw new SoftDrinksOutOfStockException(product);
 
                 }
 
             }
-            if (product instanceof SaltySnacks) {
-                if (SaltySnackCount > 0) {
-                    SaltySnackCount--;
-                    StockCount--;
+            if (product instanceof SaltyCracks) {
+                if (saltySnackCount > 0) {
+                    saltySnackCount--;
+                    stockCount--;
                 } else {
-                    throw new ProductNotFoundException(product);
+                    throw new SaltyCracksAllEatenException(product);
                 }
 
             }
@@ -43,38 +43,39 @@ public class VendingMachine {
 
 
 
-  return null;
+        return null;
 
     }
     public static void addStock(Product product, int newStock) {
         if (product instanceof Chocolates){
-            ChocolateCount += newStock;
+            chocolateCount += newStock;
         }
         if (product instanceof SoftDrinks){
-            SoftDrinksCount += newStock;
+            softDrinksCount += newStock;
         }
-        if (product instanceof SaltySnacks  ){
-            SaltySnackCount += newStock;
+        if (product instanceof SaltyCracks  ){
+            saltySnackCount += newStock;
         }
-        StockCount += newStock;
+        stockCount += newStock;
     }
 
     public static int getStockCount() {
-        return StockCount;
+        return stockCount;
     }
 
     public  static void main(String[] args) throws ProductNotFoundException {
 
         Product coke = new SoftDrinks("simba", "cocs");
-        Product salty = new SaltySnacks("Massai", "Salty");
+        Product salty = new SaltyCracks("Massai", "Salty");
         Product Choc = new Chocolates("Bubbly","Sweet");
-        addStock(coke, 0);
-        addStock(salty,0);
+        addStock(coke, 1);
+        addStock(salty,2);
         addStock(Choc,4);
         buy(salty);
 
 
         System.out.println(getStockCount());
+        System.out.println(saltySnackCount);
 
 
 
