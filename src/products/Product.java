@@ -1,4 +1,4 @@
-package Exceptions;
+package products;
 
 public class Product {
     public String name;
@@ -7,10 +7,10 @@ public class Product {
         this.description = description;
         this.name = name;
     }
-    String getName(){
+    public String getName(){
         return name;
     }
-    String getDescription(){
+    public String getDescription(){
         return description;
     }
 }

@@ -1,8 +1,9 @@
-package Exceptions;
+package CustomExceptions;
+
+import products.Product;
 
 public class SoftDrinksOutOfStockException extends ProductNotFoundException {
     public SoftDrinksOutOfStockException(Product product) {
         super(product);
     }
-
 }

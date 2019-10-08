@@ -1,4 +1,7 @@
-package Exceptions;
+package vendingMachine;
+
+import products.*;
+import CustomExceptions.*;
 
 public class VendingMachine {
 
@@ -68,10 +71,11 @@ public class VendingMachine {
         Product coke = new SoftDrinks("simba", "cocs");
         Product salty = new SaltyCracks("Massai", "Salty");
         Product Choc = new Chocolates("Bubbly","Sweet");
-        addStock(coke, 1);
+        addStock(coke, 0);
         addStock(salty,2);
         addStock(Choc,4);
         buy(salty);
+        buy(coke);
 
 
         System.out.println(getStockCount());

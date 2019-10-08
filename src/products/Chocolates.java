@@ -1,4 +1,5 @@
-package Exceptions;
+package products;
+import products.*;
 
 public class Chocolates extends Product {
 

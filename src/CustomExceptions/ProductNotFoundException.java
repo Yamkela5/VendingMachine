@@ -1,4 +1,5 @@
-package Exceptions;
+package CustomExceptions;
+import products.*;
 
 public class ProductNotFoundException extends Exception {
 
